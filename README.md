@@ -45,7 +45,7 @@ In your model, set BroomTrait and add a method named "options" which return valu
     
         }
 
-Now you also can call the methods named optionValue(), optionValues(), optionKey() and optionKeys().
+Now you also can call the methods named optionValue(), optionValues(), optionKey(), optionKeys() and optionRandom().
 
 e.g)
 
@@ -106,6 +106,23 @@ Keys
     
     */
 
+Random
+
+    echo Color::optionRandom();     // Blue
+    
+    $options = Color::optionRandom(2);  // If you set a numeric argument, you can get array values.
+    print_r($options);
+    
+    /* Output
+    
+        Array
+        (
+            [0] => Blue
+            [1] => Green
+        )
+    
+    */
+
 
 **Customized Method Name**  
 
@@ -127,7 +144,7 @@ You also can use customized method name like "redOptions".;
     
         }
 
-Now you can call redOptionValue(), redOptionValues(), redOptionKey(), redOptionKeys()
+Now you can call redOptionValue(), redOptionValues(), redOptionKey(), redOptionKeys() and redOptionRandom().
 
 License
 ====
