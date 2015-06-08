@@ -3,23 +3,6 @@ Broom
 
 A PHP package mainly developed for Laravel to manage option values.
 
-Installation&settings for Laravel
-====
-
-After installation using composer, add the followings to the array in  app/config/app.php
-
-    'providers' => array(  
-        ...Others...,  
-        'Sukohi\Broom\BroomServiceProvider',
-    )
-
-Also
-
-    'aliases' => array(  
-        ...Others...,  
-        'Broom' => 'Sukohi\Broom\Facades\Broom',
-    )
-
 Usage
 ====
 
