@@ -61,6 +61,10 @@ trait BroomTrait {
 
             throw new \BadMethodCallException('Method ['. $method .'] does not exist.');
 
+        } else {
+
+            return is_callable(['parent', '__callStatic']) ? parent::__callStatic($name, $arguments) : null;
+
         }
 
     }
