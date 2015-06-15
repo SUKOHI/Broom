@@ -4,7 +4,7 @@ trait BroomTrait {
 
     public static function __callStatic($name, $arguments) {
 
-        $pattern = '!^([a-zA-z]*)(Option|option)((Key|Value|Random)s?)$!';
+        $pattern = '!^([a-zA-z]*)(Option|option)((Key|Value|Random|KeyRandom)s?)$!';
 
         if(preg_match($pattern, $name, $matches)) {
 
@@ -49,11 +49,14 @@ trait BroomTrait {
 
                         return $random_values;
 
-                    } else {
-
-                        return $options[$random_keys];
-
                     }
+
+                    return $options[$random_keys];
+
+                } else if($method_type == 'KeyRandom') {
+
+                    $request_number = (!empty($arguments[0])) ? intval($arguments[0]) : 1;
+                    return array_rand($options, $request_number);
 
                 }
 
