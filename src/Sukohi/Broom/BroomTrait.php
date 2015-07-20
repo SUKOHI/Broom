@@ -30,7 +30,27 @@ trait BroomTrait {
 
                 } else if($method_type == 'Values') {
 
-                    return array_values($options);
+                    $option_ids = (!empty($arguments[0])) ? $arguments[0] : [];
+
+                    if(!empty($option_ids)) {
+
+                        foreach ($options as $option_id => $option) {
+
+                            if(in_array($option_id, $option_ids)) {
+
+                                $option_values[] = $option;
+
+                            }
+
+                        }
+
+                    } else {
+
+                        $option_values = array_values($options);
+
+                    }
+
+                    return $option_values;
 
                 } else if($method_type == 'Random') {
 

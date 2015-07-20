@@ -72,6 +72,21 @@ Values
         )
     
     */
+    
+    You also can filter the values by setting ids.
+    
+    $values = Color::optionValues([2, 3]);
+    print_r($values);
+
+    /* Output
+    
+        Array
+        (
+            [0] => Blue
+            [1] => Green
+        )
+    
+    */
 
 Keys
 
