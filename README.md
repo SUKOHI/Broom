@@ -1,8 +1,22 @@
 Broom
 ====
 
-A PHP package mainly developed for Laravel to manage option values.
+A PHP package mainly developed for Laravel to manage option values.  
+(This is for Laravel 4.2. [For Laravel 5+](https://github.com/SUKOHI/Broom))
 
+Installation
+====
+
+Add this package name in composer.json
+
+    "require": {
+      "sukohi/broom": "1.*"
+    }
+
+Execute composer command.
+
+    composer update
+    
 Usage
 ====
 
