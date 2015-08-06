@@ -1,7 +1,21 @@
 Broom
 ====
 
-A PHP package mainly developed for Laravel to manage option values.
+A PHP package mainly developed for Laravel to manage option values.  
+(This is for Laravel 5+. [For Laravel 4.2](https://github.com/SUKOHI/Broom/tree/1.0))
+
+Installation
+====
+
+Add this package name in composer.json
+
+    "require": {
+      "sukohi/broom": "2.*"
+    }
+
+Execute composer command.
+
+    composer update
 
 Usage
 ====
@@ -10,7 +24,7 @@ Usage
 
 In your model, set BroomTrait and add a method named "options" which return values you want.
 
-    <?php 
+    <?php namespace App;
     
     use Sukohi\Broom\BroomTrait;
     
@@ -34,7 +48,7 @@ e.g)
 
 Options
 
-    $colors = Color::options();
+    $colors = \App\Color::options();
     print_r($colors);
 
     /* Output
@@ -50,16 +64,16 @@ Options
 
 Value
 
-    echo Color::optionValue(2);   // Blue
+    echo \App\Color::optionValue(2);   // Blue
 
 Key
 
-    echo Color::optionKey('Green');      // 3
+    echo \App\Color::optionKey('Green');      // 3
     
 
 Values
     
-    $values = Color::optionValues();
+    $values = \App\Color::optionValues();
     print_r($values);
     
     /* Output
@@ -75,7 +89,7 @@ Values
     
     You also can filter the values by setting ids.
     
-    $values = Color::optionValues([2, 3]);
+    $values = \App\Color::optionValues([2, 3]);
     print_r($values);
 
     /* Output
@@ -90,7 +104,7 @@ Values
 
 Keys
 
-    $keys = Color::optionKeys();
+    $keys = \App\Color::optionKeys();
     print_r($keys);
     
     /* Output
@@ -106,9 +120,9 @@ Keys
 
 Random
 
-    echo Color::optionRandom();     // Blue
+    echo \App\Color::optionRandom();     // Blue
     
-    $options = Color::optionRandom(2);  // If you set a numeric argument, you can get array values.
+    $options = \App\Color::optionRandom(2);  // If you set a numeric argument, you can get array values.
     print_r($options);
     
     /* Output
@@ -123,9 +137,9 @@ Random
 
 Key Random
 
-    echo Color::optionKeyRandom();  // 2
+    echo \App\Color::optionKeyRandom();  // 2
     
-    $options = Color::optionKeyRandom(2);
+    $options = \App\Color::optionKeyRandom(2);
     print_r($options);
     
     /* Output
