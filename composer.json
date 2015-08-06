@@ -12,10 +12,7 @@
         "laravel/framework": "~5.0"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
-        "psr-0": {
+        "psr-4": {
             "Sukohi\\Broom\\": "src/"
         }
     },
