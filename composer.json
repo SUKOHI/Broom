@@ -1,6 +1,6 @@
 {
     "name": "sukohi/broom",
-    "description": "",
+    "description": "A PHP package mainly developed for Laravel to manage option values using Trait.",
     "authors": [
         {
             "name": "Sukohi",
