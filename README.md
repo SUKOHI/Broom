@@ -4,6 +4,8 @@ Broom
 A PHP package mainly developed for Laravel to manage option values using Trait.  
 (This is for Laravel 5+. [For Laravel 4.2](https://github.com/SUKOHI/Broom/tree/1.0))
 
+**[Demo](http://demo-laravel52.capilano-fw.com/broom)**
+
 Installation
 ====
 
