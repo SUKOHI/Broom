@@ -198,7 +198,7 @@ You also can use customized method name like "redOptions".;
     
         }
 
-Now you can call redOptionValue(), redOptionValues(), redOptionKey(), redOptionKeys(), redOptionRandom() and redOptionKeyRandom().
+Now you can call redOptionValue(), redOptionValues(), redOptionKey(), redOptionKeys(), redOptionRandom(), redOptionKeyRandom(), redOptionHasKey() and redOptionHasValue.
 
 License
 ====
