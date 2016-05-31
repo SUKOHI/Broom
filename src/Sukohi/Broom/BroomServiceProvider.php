@@ -18,7 +18,7 @@ class BroomServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('sukohi/broom');
+		$this->package('whoops-report/broom');
 	}
 
 	/**
