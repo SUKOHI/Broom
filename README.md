@@ -44,7 +44,7 @@ In your model, set BroomTrait and add a method named "options" which return valu
     
         }
 
-Now you also can call the methods named optionValue(), optionValues(), optionKey(), optionKeys(), optionRandom() and optionKeyRandom().
+Now you also can call the methods named optionValue(), optionValues(), optionKey(), optionKeys(), optionRandom(), optionKeyRandom(), optionHasKey() and optionHasValue().
 
 e.g)
 
@@ -68,10 +68,13 @@ Value
 
     echo \App\Color::optionValue(2);   // Blue
 
+or You can set default value.
+
+    echo \App\Color::optionValue(5, 'Default');   // Default
+
 Key
 
     echo \App\Color::optionKey('Green');      // 3
-    
 
 Values
     
@@ -153,7 +156,27 @@ Key Random
     )
     
     */
+
+Has Key  
+
+    $key = 3;
     
+    if(\App\Color::optionHasKey($key)) {
+    
+        echo 'Has key!';
+    
+    }
+
+Has Value  
+
+    $value = 'Red';
+    
+    if(\App\Color::optionHasValue($value)) {
+    
+        echo 'Has value!';
+    
+    }
+
 
 **Customized Method Name**  
 
