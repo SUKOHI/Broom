@@ -4,7 +4,7 @@ trait BroomTrait {
 
     public static function __callStatic($name, $arguments) {
 
-		$pattern = '!^([a-zA-z]*)(Option|option)((Key|Value|Random|KeyRandom|HasKey|HasValue)s?)$!';
+		$pattern = '!^([a-zA-z]*)(Option|option|Options|options)((Key|Value|Random|KeyRandom|HasKey|HasValue|WithTitle)s?)$!';
 
         if(preg_match($pattern, $name, $matches)) {
 
@@ -86,6 +86,12 @@ trait BroomTrait {
 				} else if($method_type == 'HasValue') {
 
 					return in_array($arguments[0], $options);
+
+				} else if($method_type == 'WithTitle') {
+
+					$value = $arguments[0];
+					$key = isset($arguments[1]) ? $arguments[1] : '';
+					return [$key => $value]+ $options;
 
 				}
 

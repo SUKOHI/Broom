@@ -44,7 +44,7 @@ In your model, set BroomTrait and add a method named "options" which return valu
     
         }
 
-Now you also can call the methods named optionValue(), optionValues(), optionKey(), optionKeys(), optionRandom(), optionKeyRandom(), optionHasKey() and optionHasValue().
+Now you also can call the methods named optionValue(), optionValues(), optionKey(), optionKeys(), optionRandom(), optionKeyRandom(), optionHasKey(), optionHasValue() and optionsWithTitle().
 
 e.g)
 
@@ -177,6 +177,36 @@ Has Value
     
     }
 
+With Default Title
+
+    $options = \App\Color::optionsWithTitle('Pick one');
+        
+    /* Output
+    
+    Array
+    (
+        [] => Pick one
+        [1] => Red
+        [2] => Blue
+        [3] => Green
+    )
+    
+    */
+
+
+    $options = \App\Color::optionsWithTitle('Pick one', '-99');
+        
+    /* Output
+    
+    Array
+    (
+        [-99] => Pick one
+        [1] => Red
+        [2] => Blue
+        [3] => Green
+    )
+    
+    */
 
 **Customized Method Name**  
 
@@ -198,7 +228,7 @@ You also can use customized method name like "redOptions".;
     
         }
 
-Now you can call redOptionValue(), redOptionValues(), redOptionKey(), redOptionKeys(), redOptionRandom(), redOptionKeyRandom(), redOptionHasKey() and redOptionHasValue.
+Now you can call redOptionValue(), redOptionValues(), redOptionKey(), redOptionKeys(), redOptionRandom(), redOptionKeyRandom(), redOptionHasKey(), redOptionHasValue() and redOptionsWithTitle().
 
 License
 ====
