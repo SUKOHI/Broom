@@ -208,6 +208,16 @@ With Default Title
     
     */
 
+OptionIs
+
+    $key = '1';
+
+    if(\App\Item::OptionIs('Item - 1', $key)) {
+
+        echo 'True!';
+
+    }
+
 **Customized Method Name**  
 
 You also can use customized method name like "redOptions".;
