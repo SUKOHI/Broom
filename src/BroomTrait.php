@@ -2,6 +2,30 @@
 
 trait BroomTrait {
 
+    public static function options() {
+
+        if(property_exists(__CLASS__, 'option')) {
+
+            $self = new self;
+
+            if(!is_array($self->option)) {
+
+                $key_column = 'id';
+                $value_column = $self->option;
+
+            } else {
+
+                $key_column = key($self->option);
+                $value_column = current($self->option);
+
+            }
+
+            return $self->pluck($value_column, $key_column);
+
+        }
+
+    }
+
     public static function __callStatic($name, $arguments) {
 
 		$pattern = '!^([a-zA-z]*)(Option|option|Options|options)((Key|Value|Random|KeyRandom|HasKey|HasValue|WithTitle|Is)s?)?$!';
@@ -12,9 +36,15 @@ trait BroomTrait {
             $method_type = $matches[3];
             $method = camel_case($target .'_options');
 
-            if(method_exists(get_class(), $method)) {
+            if(method_exists(__CLASS__, $method)) {
 
                 $options = call_user_func('self::'. $method);
+
+                if(!is_array($options)) {
+
+                    $options = $options->toArray();
+
+                }
 
                 if($method_type == 'Value') {
 

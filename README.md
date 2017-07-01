@@ -2,24 +2,18 @@ Broom
 ====
 
 A PHP package mainly developed for Laravel to manage option values using Trait.  
-(This is for Laravel 5+. [For Laravel 4.2](https://github.com/SUKOHI/Broom/tree/1.0))
+(This packages is maintained under L54)
 
 **[Demo](http://demo-laravel52.capilano-fw.com/broom)**
 
 Installation
 ====
 
-Add this package name in composer.json
-
-    "require": {
-      "sukohi/broom": "2.*"
-    }
-
 Execute composer command.
 
-    composer update
+    composer require sukohi/broom:3.*
 
-Usage
+Preparation
 ====
 
 **Simple Way**  
@@ -44,9 +38,33 @@ In your model, set BroomTrait and add a method named "options" which return valu
     
         }
 
-Now you also can call the methods named optionValue(), optionValues(), optionKey(), optionKeys(), optionRandom(), optionKeyRandom(), optionHasKey(), optionHasValue() and optionsWithTitle().
+Or you can simply prepare by setting `$option` property like so if your model extends `Illuminate\Database\Eloquent\Model`.  
 
-e.g)
+    <?php namespace App;
+    
+    use Illuminate\Database\Eloquent\Model;
+    use Sukohi\Broom\BroomTrait;
+    
+    class Color extends Model {
+    
+        use BroomTrait;
+
+        protected $option = ['id' => 'name']; // or 'name';
+
+Now you also can call the next methods. 
+
+* optionValue()
+* optionValues()
+* optionKey()
+* optionKeys()
+* optionRandom()
+* optionKeyRandom()
+* optionHasKey()
+* optionHasValue()
+* optionsWithTitle()
+
+Usage
+====
 
 Options
 
@@ -63,6 +81,7 @@ Options
         )
     
     */
+**Note:** You will get `Collection` when you set `$option`.
 
 Value
 
