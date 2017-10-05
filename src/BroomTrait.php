@@ -138,8 +138,8 @@ trait BroomTrait {
 
                 } else if($method_type == 'List') {
 
-				    $id_key = $arguments[0];
-				    $value_key = $arguments[1];
+				    $id_key = (!empty($arguments[0])) ? $arguments[0] : 'id';
+                    $value_key = (!empty($arguments[1])) ? $arguments[1] : 'text';
 				    $list = [];
 				    $options = self::options();
 

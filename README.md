@@ -239,6 +239,10 @@ optionIs
 
 optionsList
 
+    $list = \App\Item::optionsList();   // Default: $id_key => 'id', $value_key => 'text'
+    
+    // or 
+    
     $id_key = 'id';
     $value_key = 'text';
     $list = \App\Item::optionsList($id_key, $value_key);
