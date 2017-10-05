@@ -28,7 +28,7 @@ trait BroomTrait {
 
     public static function __callStatic($name, $arguments) {
 
-		$pattern = '!^([a-zA-z]*)(Option|option|Options|options)((Key|Value|Random|KeyRandom|HasKey|HasValue|WithTitle|Is)s?)?$!';
+		$pattern = '!^([a-zA-z]*)(Option|option|Options|options)((Key|Value|Random|KeyRandom|HasKey|HasValue|WithTitle|Is|List)s?)?$!';
 
         if(preg_match($pattern, $name, $matches)) {
 
@@ -135,6 +135,24 @@ trait BroomTrait {
 
                     $key = array_search($value, $options);
                     return ($key == $arguments[1]);
+
+                } else if($method_type == 'List') {
+
+				    $id_key = $arguments[0];
+				    $value_key = $arguments[1];
+				    $list = [];
+				    $options = self::options();
+
+                    foreach ($options as $id => $value) {
+
+                        $list[] = [
+                            $id_key => $id,
+                            $value_key => $value
+                        ];
+
+				    }
+
+				    return $list;
 
                 }
 

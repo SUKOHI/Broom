@@ -227,15 +227,46 @@ With Default Title
     
     */
 
-OptionIs
+optionIs
 
     $key = '1';
 
-    if(\App\Item::OptionIs('Item - 1', $key)) {
+    if(\App\Item::optionIs('Item - 1', $key)) {
 
         echo 'True!';
 
     }
+
+optionsList
+
+    $id_key = 'id';
+    $value_key = 'text';
+    $list = \App\Item::optionsList($id_key, $value_key);
+    
+    /*
+    
+    Array
+    (
+        [0] => Array
+            (
+                [id] => 1
+                [text] => Red
+            )
+    
+        [1] => Array
+            (
+                [id] => 2
+                [text] => Blue
+            )
+    
+        [2] => Array
+            (
+                [id] => 3
+                [text] => Green
+            )
+    )
+    
+    */
 
 **Customized Method Name**  
 
