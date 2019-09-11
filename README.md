@@ -1,26 +1,25 @@
-Broom
-====
+# Broom
 
 A PHP package mainly developed for Laravel to manage option values using Trait.  
 (This packages is maintained under L54)
 
 **[Demo](http://demo-laravel52.capilano-fw.com/broom)**
 
-Installation
-====
+# Installation
 
 Execute composer command.
 
     composer require sukohi/broom:3.*
 
-Preparation
-====
+# Preparation
 
 **Simple Way**  
 
 In your model, set BroomTrait and add a method named "options" which return values you want.
 
-    <?php namespace App;
+    <?php
+    
+    namespace App;
     
     use Sukohi\Broom\BroomTrait;
     
@@ -40,7 +39,9 @@ In your model, set BroomTrait and add a method named "options" which return valu
 
 Or you can simply prepare by setting `$option` property like so if your model extends `Illuminate\Database\Eloquent\Model`.  
 
-    <?php namespace App;
+    <?php
+    
+    namespace App;
     
     use Illuminate\Database\Eloquent\Model;
     use Sukohi\Broom\BroomTrait;
@@ -63,10 +64,9 @@ Now you also can call the next methods.
 * optionHasValue()
 * optionsWithTitle()
 
-Usage
-====
+# Usage
 
-Options
+## Options
 
     $colors = \App\Color::options();
     print_r($colors);
@@ -83,7 +83,7 @@ Options
     */
 **Note:** You will get `Collection` when you set `$option`.
 
-Value
+## Value
 
     echo \App\Color::optionValue(2);   // Blue
 
@@ -91,11 +91,11 @@ or You can set default value.
 
     echo \App\Color::optionValue(5, 'Default');   // Default
 
-Key
+## Key
 
     echo \App\Color::optionKey('Green');      // 3
 
-Values
+## Values
     
     $values = \App\Color::optionValues();
     print_r($values);
@@ -126,7 +126,7 @@ Values
     
     */
 
-Keys
+## Keys
 
     $keys = \App\Color::optionKeys();
     print_r($keys);
@@ -142,7 +142,7 @@ Keys
     
     */
 
-Random
+## Random
 
     echo \App\Color::optionRandom();     // Blue
     
@@ -159,7 +159,7 @@ Random
     
     */
 
-Key Random
+## Key Random
 
     echo \App\Color::optionKeyRandom();  // 2
     
@@ -176,7 +176,7 @@ Key Random
     
     */
 
-Has Key  
+## Has Key  
 
     $key = 3;
     
@@ -186,7 +186,7 @@ Has Key
     
     }
 
-Has Value  
+## Has Value  
 
     $value = 'Red';
     
@@ -196,7 +196,7 @@ Has Value
     
     }
 
-With Default Title
+## With Default Title
 
     $options = \App\Color::optionsWithTitle('Pick one');
         
@@ -227,7 +227,7 @@ With Default Title
     
     */
 
-optionIs
+## optionIs
 
     $key = '1';
 
@@ -237,7 +237,7 @@ optionIs
 
     }
 
-optionsList
+## optionsList
 
     $list = \App\Item::optionsList();   // Default: $id_key => 'id', $value_key => 'text'
     
@@ -272,7 +272,26 @@ optionsList
     
     */
 
-**Customized Method Name**  
+# Cache
+
+`$option_cache` allows you to use cache for quick access.
+
+    <?php
+    
+    namespace App;
+    
+    use Illuminate\Database\Eloquent\Model;
+    use Sukohi\Broom\BroomTrait;
+    
+    class Color extends Model {
+    
+        use BroomTrait;
+
+        protected $option_cache = true;
+
+then use `forgetCache()` for deleting cache;
+
+# Customized Method Name
 
 You also can use customized method name like "redOptions".;
 
@@ -294,8 +313,7 @@ You also can use customized method name like "redOptions".;
 
 Now you can call redOptionValue(), redOptionValues(), redOptionKey(), redOptionKeys(), redOptionRandom(), redOptionKeyRandom(), redOptionHasKey(), redOptionHasValue() and redOptionsWithTitle().
 
-License
-====
+# License
 This package is licensed under the MIT License.
 
 Copyright 2015 Sukohi Kuhoh
